@@ -10,11 +10,13 @@ Genova is a Discord bot that serves as an open-source project for beginner Pytho
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [IMPORTANT](#important)
+- [Resources](#resources)
 - [License](#license)
 
 ## Introduction
 
-Genova is designed to be a beginner-friendly Discord bot, welcoming contributions from the community to enhance its functionality. Whether you are new to Python or looking to gain experience with API integration, Genova provides an opportunity to learn and contribute to an open-source project.
+Genova is designed to be a beginner-friendly Discord bot, welcoming contributions from the community to enhance its functionality. Whether you are new to Python or looking to gain experience with API integration, Genova provides an opportunity to learn and contribute to an open-source project. To learn the basics of the Discord API and how to get your own Discord Token, look at the *Resources* section below.
 
 ## Features
 
@@ -76,3 +78,8 @@ If you would like to contribute to Genova to add more API examples/Usages and ex
 ## IMPORTANT
 
 If you submit a contribution that includes more modules/dependencies for the project, make sure you add that to the requiements.txt! This allows for *easier* installation in the future.
+
+## Resources
+Discord API and Token: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
+Spotipy API and Spotify Developer Token: [Spotipy: How to Guide](https://medium.com/@maxtingle/getting-started-with-spotifys-api-spotipy-197c3dc6353b)  
+
