@@ -42,11 +42,11 @@ Before you begin, ensure you have the following installed:
 2. Install Dependencies:
     '''pip install -r requirements.txt'''
 
-3. Create a '.env' file within your project folder with these tokens
-    DISCORD_TOKEN='[Insert Token]'
-    OPENAI_API_KEY=[Insert Token]
-    SPOTIFY_CLIENT_ID='[Insert Token]'
-    SPOTIFY_CLIENT_SECRET='[Insert Token]'
+3. Create a '.env' file within your project folder with these tokens  
+    DISCORD_TOKEN='[Insert Token]'  
+    OPENAI_API_KEY=[Insert Token]  
+    SPOTIFY_CLIENT_ID='[Insert Token]'  
+    SPOTIFY_CLIENT_SECRET='[Insert Token]'  
     *Keep in mind, you must have the tokens in order for the bot to run successfully, also add the file to your ".gitignore" file in order to prevent leaking your tokens for others to use and abuse*
 
 4. Run the bot:
