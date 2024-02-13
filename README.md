@@ -80,6 +80,9 @@ If you would like to contribute to Genova to add more API examples/Usages and ex
 If you submit a contribution that includes more modules/dependencies for the project, make sure you add that to the requiements.txt! This allows for *easier* installation in the future. Also if their was a resource you used to create the use for your API for Genova, please link it in the Resources Section in the README.md file or link it in your pull request!
 
 ## Resources
-Discord API and Token: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
+Discord API and Token Walkthrough: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
+Discord.py Documentation: [Discord.py](https://discordpy.readthedocs.io/en/latest/intro.html)
 Spotipy API and Spotify Developer Token: [Spotipy: How to Guide](https://medium.com/@maxtingle/getting-started-with-spotifys-api-spotipy-197c3dc6353b)  
+Spotipy Documenation: [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/)
+
 
