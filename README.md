@@ -81,7 +81,7 @@ If you submit a contribution that includes more modules/dependencies for the pro
 
 ## Resources
 Discord API and Token Walkthrough: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
-Discord.py Documentation: [Discord.py](https://discordpy.readthedocs.io/en/latest/intro.html)
+Discord.py Documentation: [Discord.py](https://discordpy.readthedocs.io/en/latest/intro.html)  
 Spotipy API and Spotify Developer Token: [Spotipy: How to Guide](https://medium.com/@maxtingle/getting-started-with-spotifys-api-spotipy-197c3dc6353b)  
 Spotipy Documenation: [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/)
 
