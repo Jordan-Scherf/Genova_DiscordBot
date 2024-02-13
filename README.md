@@ -77,7 +77,7 @@ If you would like to contribute to Genova to add more API examples/Usages and ex
 
 ## IMPORTANT
 
-If you submit a contribution that includes more modules/dependencies for the project, make sure you add that to the requiements.txt! This allows for *easier* installation in the future.
+If you submit a contribution that includes more modules/dependencies for the project, make sure you add that to the requiements.txt! This allows for *easier* installation in the future. Also if their was a resource you used to create the use for your API for Genova, please link it in the Resources Section in the README.md file or link it in your pull request!
 
 ## Resources
 Discord API and Token: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
