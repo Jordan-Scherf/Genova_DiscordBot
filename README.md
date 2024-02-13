@@ -1,6 +1,6 @@
 # Genova Discord Bot
 
-Genova is a Discord bot that is made to be an open source project for begginner python programmers to practice with python as well as use and practice the use an any API that can be configurated. Fork the repository and Add your own contributions!
+Genova is a Discord bot that serves as an open-source project for beginner Python programmers to practice and learn about Python programming and API integration. Fork the repository and contribute to this project!
 
 ## Table of Contents
 
@@ -14,13 +14,14 @@ Genova is a Discord bot that is made to be an open source project for begginner 
 
 ## Introduction
 
-Genova is designed as a beginner-friendly Discord bot, welcoming contributions from the community to enhance its functionality. Whether you are new to Python or looking to gain experience with API integration, Genova provides an opportunity to learn and contribute to an open-source project.
+Genova is designed to be a beginner-friendly Discord bot, welcoming contributions from the community to enhance its functionality. Whether you are new to Python or looking to gain experience with API integration, Genova provides an opportunity to learn and contribute to an open-source project.
 
 ## Features
-- # Spotipy
-- Fetches and displays the top 5 songs of a specified artist on Spotify.
-- Responds to specific commands in Discord channels.
-- Uses the Discord and Spotify APIs for functionality.
+
+- **Spotipy**
+  - Fetches and displays the top 5 songs of a specified artist on Spotify.
+  - Responds to specific commands in Discord channels.
+  - Uses the Discord and Spotify APIs for functionality.
 
 ## Prerequisites
 
@@ -31,7 +32,7 @@ Before you begin, ensure you have the following installed:
 - Spotipy library
 - Spotify Developer account with client ID and client secret
 - Discord bot token
-- `.env` file with necessary credentials
+- `.env` file with necessary credentials (do not share or commit this file)
 
 ## Installation
 
@@ -68,9 +69,9 @@ If you would like to contribute to Genova to add more API examples/Usages and ex
 
 2. Add your contributions to your forked repository
 
-3. Press "Contribute" in your forked repository and submit it to main! * This creates a "Pull Reqeust"
+3. Press "Contribute" in your forked repository and submit it to the Staging Branch! * This creates a "Pull Reqeust"
 
-4. After review, the Pull Request may be approved or denied based on various reasons such as Improper Syntax, Innopropriate Content, Bad Documentation, etc.
+4. After review, the Pull Request may be approved or denied based on various reasons such as Improper Syntax, Innopropriate Content, Bad Documentation, etc. After the Pull Request is approved, it will be moved into staging for more testing before being commited into main!
 
 ## IMPORTANT
 
