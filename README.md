@@ -29,7 +29,7 @@ Genova is designed to be a beginner-friendly Discord bot, welcoming contribution
 
 Before you begin, ensure you have the following installed:
 
-- Python 3
+- Python 3.11.4
 - Discord.py library
 - Spotipy library
 - Spotify Developer account with client ID and client secret
