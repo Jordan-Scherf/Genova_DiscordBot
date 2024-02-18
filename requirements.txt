@@ -2,3 +2,6 @@ discord.py
 asyncio
 spotipy
 python-dotenv
+PyNaCl
+black
+yt_dlp

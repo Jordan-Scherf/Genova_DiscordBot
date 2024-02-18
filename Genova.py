@@ -1,13 +1,13 @@
 # These are all the modules we will be using! Continue to add to them as we expand the Bot!
 import asyncio
 import discord
-import json
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from discord.ext import commands
 import os
-import datetime
 from dotenv import load_dotenv
+import yt_dlp
+
 
 #Let's grab the .env file (If you do not have one, I suggest making one!)
 load_dotenv()
@@ -29,7 +29,6 @@ client_credentials_manager = SpotifyClientCredentials(client_id=spotifyClientID,
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 ########################################################################################################################################
-
 
 #This is a bot command, give it a try in discord! Type "$top5 Drake" If the artist is a 2 word name, surround them in quotes
 #Command to get the top5 tracks from an artist - Might not work for some due to the search algorithm provided by spotipy
@@ -72,6 +71,46 @@ async def top5(ctx, arg):
                 await ctx.send(f"{i + 1}. {track['name']} - {', '.join(artist['name'] for artist in track['artists'])}")
             return
         
+# Command to Join the Channel of the Requestor
+@bot.command(name="join")
+async def join(ctx):
+    channel = ctx.message.author.voice.channel
+    await channel.connect()
+# Command to Leave the Channel
+@bot.command(name="leave")
+async def leave(ctx):
+    await ctx.voice_client.disconnect()
+# Command to stop any audio coming from the bot
+@bot.command(name="stop")
+async def stop(ctx):
+    voice_client = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+    if voice_client.is_playing():
+        voice_client.stop()
+# Command to play requested song by mp3 file/youtube url
+@bot.command(name="play")
+async def play(ctx, source):
+    voice_channel = ctx.author.voice.channel
+    voice_client = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+
+    if not voice_client.is_connected:
+        await voice_channel.connect()
+
+    if voice_client.is_playing():
+        voice_client.stop()
+
+    if source.startswith("http"):
+        # If the source is a YouTube URL
+        ydl_opts = {'format': 'bestaudio'}
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(source, download=False)
+            url = info['formats'][0]['url']
+            source = discord.FFmpegPCMAudio(url)
+            
+    else:
+        # If the source is a local file
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(source), volume=0.5)
+
+    voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
 
 
 # This logs in the console that the bot is ready
@@ -92,8 +131,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
     print(str(message.guild.name) + " - " + str(message.channel) + " - " + str(message.author) + ": " + message.content)
-    if message.content.lower().startswith('hey genova,') or \
-       message.content.lower().startswith('genova'):
+    if message.content.lower().startswith('hey genova,'):
         author = message.author
         channel = message.channel
         async with message.channel.typing():
@@ -110,7 +148,7 @@ async def on_message(message):
                 await message.add_reaction('😭')
                 await asyncio.sleep(2)
             await message.channel.send("*i dont know how to do that*")
-    if message.content.lower() == "say hi genova!":
+    if "say hi genova!" in message.content.lower():
         await message.add_reaction('😀')
         async with message.channel.typing():
             await asyncio.sleep(2)
@@ -129,14 +167,43 @@ async def help(ctx):
     em = discord.Embed(title = "Help", description = "Use $help <command> for extended description of the command", color = discord.Color.from_rgb(255, 0, 0))
 
     em.add_field(name = "Spotify", value = "top5")
+    em.add_field(name = "Voice Channel", value = "join, leave")
+    em.add_field(name = "Youtube/Audio", value = "play, stop")
 
     await ctx.send(embed = em)
 
 @help.command()
 async def top5(ctx):
-    em = discord.Embed(title = "Top5", description = "Displays the Top 5 songs from the given artist", color = discord.Color.from_rgb(255, 0, 0))
+    em = discord.Embed(title = "Top5", description = "Displays the Top 5 songs from the given artist", color = discord.Color.from_rgb(255, 51, 255))
     em.add_field(name = "**Syntax**", value = "$top5 <artist>")
     await ctx.send(embed = em)
+
+
+@help.command()
+async def join(ctx):
+    em = discord.Embed(title = "Join", description = "Joins the Current Voice Channel of the Requestor", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$join")
+    await ctx.send(embed = em)
+
+@help.command()
+async def leave(ctx):
+    em = discord.Embed(title = "Leave", description = "Leaves the Current Channel the Bot is Currently In", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$Leave")
+    await ctx.send(embed = em)
+
+@help.command()
+async def leave(ctx):
+    em = discord.Embed(title = "Play", description = "Plays audio from either a preloaded mp3 file or a youtube link (IMPORTANT: Youtube links not working at the moment)", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$play <mp3 file/url>")
+    await ctx.send(embed = em)
+
+@help.command()
+async def leave(ctx):
+    em = discord.Embed(title = "Stop", description = "Stops any current audio coming from the bot", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$stop")
+    await ctx.send(embed = em)        
+
+
 #########################################################################################################################################################################
 
 
