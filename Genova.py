@@ -7,6 +7,7 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import yt_dlp
+import requests
 
 
 #Let's grab the .env file (If you do not have one, I suggest making one!)
@@ -113,6 +114,29 @@ async def play(ctx, source):
     voice_client.play(source, after=lambda e: print('Player error: %s' % e) if e else None)
 
 
+# New command to get a random dog image
+@bot.command(name='randomdog')
+async def random_dog(ctx):
+    # Dog API endpoint for random dog images
+    dog_api_url = 'https://dog.ceo/api/breeds/image/random'
+
+    # Make a GET request to the Dog API
+    response = requests.get(dog_api_url)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Parse the JSON response
+        data = response.json()
+
+        # Get the URL of the random dog image
+        dog_image_url = data['message']
+
+        # Send the dog image to the Discord channel
+        await ctx.send(f"Here's a random dog for you: {dog_image_url}")
+    else:
+        await ctx.send("Sorry, I couldn't fetch a random dog image at the moment. Try again later.")
+
+
 # This logs in the console that the bot is ready
 # To Clarify, The @bot.event looks for the specified event, such as on_ready
 @bot.event
@@ -192,13 +216,13 @@ async def leave(ctx):
     await ctx.send(embed = em)
 
 @help.command()
-async def leave(ctx):
+async def play(ctx):
     em = discord.Embed(title = "Play", description = "Plays audio from either a preloaded mp3 file or a youtube link (IMPORTANT: Youtube links not working at the moment)", color = discord.Color.from_rgb(255, 51, 255))
     em.add_field(name = "**Syntax**", value = "$play <mp3 file/url>")
     await ctx.send(embed = em)
 
 @help.command()
-async def leave(ctx):
+async def stop(ctx):
     em = discord.Embed(title = "Stop", description = "Stops any current audio coming from the bot", color = discord.Color.from_rgb(255, 51, 255))
     em.add_field(name = "**Syntax**", value = "$stop")
     await ctx.send(embed = em)        
