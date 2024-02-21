@@ -136,6 +136,24 @@ async def random_dog(ctx):
     else:
         await ctx.send("Sorry, I couldn't fetch a random dog image at the moment. Try again later.")
 
+# New command to get a random joke
+@bot.command(name='joke')
+async def joke(ctx):
+    # Joke API endpoint for joke
+    joke_url = 'https://official-joke-api.appspot.com/random_joke'
+
+    #make a GET request for the joke api
+    response = (requests.get(joke_url))
+    # chekc if the request was succesful (status code 200)
+    if response.status_code == 200:
+        # this just parses the data and send it to the channel
+        data = response.json()
+        setup = data["setup"]
+        punchline = data["punchline"]
+        await ctx.send(f"{setup}\n{punchline}")
+    else:
+        await ctx.send("Failed to retrieve joke, Sorry :(")
+
 
 # This logs in the console that the bot is ready
 # To Clarify, The @bot.event looks for the specified event, such as on_ready

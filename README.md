@@ -35,6 +35,12 @@ Before you begin, ensure you have the following installed:
 - Spotify Developer account with client ID and client secret
 - Discord bot token
 - `.env` file with necessary credentials (do not share or commit this file)
+- asyncio
+- python-dotenv
+- PyNAC1
+- black
+- yt_dlp
+- requests
 
 ## Installation
 
@@ -79,9 +85,12 @@ If you would like to contribute to Genova to add more API examples/Usages and ex
 If you submit a contribution that includes more modules/dependencies for the project, make sure you add that to the requiements.txt! This allows for *easier* installation in the future. Also if their was a resource you used to create the use for your API for Genova, please link it in the Resources Section in the README.md file or link it in your pull request!
 
 ## Resources
+Python 1 hour tutorial: [Python for Begginners - Learn Python in 1 Hour](https://www.youtube.com/watch?v=kqtD5dpn9C8&ab_channel=ProgrammingwithMosh) 
 Discord API and Token Walkthrough: [RealPython - Discord Bot](https://realpython.com/how-to-make-a-discord-bot-python/)  
 Discord.py Documentation: [Discord.py](https://discordpy.readthedocs.io/en/latest/intro.html)  
 Spotipy API and Spotify Developer Token: [Spotipy: How to Guide](https://medium.com/@maxtingle/getting-started-with-spotifys-api-spotipy-197c3dc6353b)  
 Spotipy Documenation: [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/)
+Joke API: [Official Joke API: Github](https://github.com/15Dkatz/official_joke_api)
+Random Dog Image APi: [Dog Ceo API Documenation](https://dog.ceo/dog-api/documentation/)
 
 
