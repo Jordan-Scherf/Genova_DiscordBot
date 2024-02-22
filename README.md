@@ -96,12 +96,12 @@ Random Dog Image APi: [Dog Ceo API Documenation](https://dog.ceo/dog-api/documen
 Giphy APi: [Giphy API Documentation](https://developers.giphy.com/docs/api/)
 
 ## env File Template
-DISCORD_TOKEN='[Token Here]'
-OPENAI_API_KEY=[Token Here]
-SPOTIFY_CLIENT_ID='[Token Here]'
-SPOTIFY_CLIENT_SECRET='[Token Here]'
-GIPHY_API_KEY = [Token Here]
+DISCORD_TOKEN='[Token Here]'  
+OPENAI_API_KEY=[Token Here]  
+SPOTIFY_CLIENT_ID='[Token Here]'  
+SPOTIFY_CLIENT_SECRET='[Token Here]'  
+GIPHY_API_KEY = [Token Here]  
 
-# If you dont want to use a token, the bot will continute to work without the tokens/keys, however the command/function
-# that uses the token will not be functional until a token/key is given
+# If you dont want to use a token, the bot will continute to work without the tokens/keys, however the command/function that uses the token will not be functional until a token/key is given
+
 
