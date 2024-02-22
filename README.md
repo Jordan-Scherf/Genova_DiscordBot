@@ -102,3 +102,6 @@ SPOTIFY_CLIENT_ID='[Token Here]'
 SPOTIFY_CLIENT_SECRET='[Token Here]'
 GIPHY_API_KEY = [Token Here]
 
+# If you dont want to use a token, the bot will continute to work without the tokens/keys, however the command/function
+# that uses the token will not be functional until a token/key is given
+
