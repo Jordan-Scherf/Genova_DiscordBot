@@ -1,5 +1,6 @@
 # These are all the modules we will be using! Continue to add to them as we expand the Bot!
 import asyncio
+import random
 import discord
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -29,6 +30,8 @@ spotifyClientSecret = (os.getenv('SPOTIFY_CLIENT_SECRET'))
 client_credentials_manager = SpotifyClientCredentials(client_id=spotifyClientID, client_secret=spotifyClientSecret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
+#Giphy Setup
+giphyAPIKey = (os.getenv('GIPHY_API_KEY'))
 ########################################################################################################################################
 
 #This is a bot command, give it a try in discord! Type "$top5 Drake" If the artist is a 2 word name, surround them in quotes
@@ -154,6 +157,31 @@ async def joke(ctx):
     else:
         await ctx.send("Failed to retrieve joke, Sorry :(")
 
+@bot.command(name='gif')
+async def gif(ctx, *search_terms):
+    # Convert search terms to a single string
+    query = ' '.join(search_terms)
+    
+    # Get a random offset to fetch a random GIF
+    offset = random.randint(0, 100)
+
+    # Giphy API endpoint URL
+    api_url = f'https://api.giphy.com/v1/gifs/search?q={query}&api_key={giphyAPIKey}&limit=1&limit=1&offset={offset}'
+
+    # Make a GET request to the Giphy API
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        # Parse the JSON response
+        gif_data = response.json()
+        gif_url = gif_data['data'][0]['images']['original']['url']  # Adjust this based on the actual JSON structure
+
+        # Send the GIF to the Discord channel
+        await ctx.send(gif_url)
+    else:
+        await ctx.send('Failed to fetch a GIF. Please try again later.')
+
+
 
 # This logs in the console that the bot is ready
 # To Clarify, The @bot.event looks for the specified event, such as on_ready
@@ -211,6 +239,7 @@ async def help(ctx):
     em.add_field(name = "Spotify", value = "top5")
     em.add_field(name = "Voice Channel", value = "join, leave")
     em.add_field(name = "Youtube/Audio", value = "play, stop")
+    em.add_field(name= "Text/Images", value="joke, gif")
 
     await ctx.send(embed = em)
 
@@ -243,7 +272,19 @@ async def play(ctx):
 async def stop(ctx):
     em = discord.Embed(title = "Stop", description = "Stops any current audio coming from the bot", color = discord.Color.from_rgb(255, 51, 255))
     em.add_field(name = "**Syntax**", value = "$stop")
-    await ctx.send(embed = em)        
+    await ctx.send(embed = em)  
+
+@help.command()
+async def joke(ctx):
+    em = discord.Embed(title = "Joke", description = "Sends a random joke to the text channel it was requested from", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$joke")
+    await ctx.send(embed = em)  
+
+@help.command()
+async def gif(ctx):
+    em = discord.Embed(title = "gif", description = "Sends a random gif based on the query to the channel it was requested from", color = discord.Color.from_rgb(255, 51, 255))
+    em.add_field(name = "**Syntax**", value = "$gif <query>")
+    await ctx.send(embed = em)      
 
 
 #########################################################################################################################################################################

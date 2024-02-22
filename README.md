@@ -12,6 +12,7 @@ Genova is a Discord bot that serves as an open-source project for beginner Pytho
 - [Contributing](#contributing)
 - [IMPORTANT](#important)
 - [Resources](#resources)
+- [env File Template](#envFileTemplate)
 - [License](#license)
 
 ## Introduction
@@ -92,5 +93,12 @@ Spotipy API and Spotify Developer Token: [Spotipy: How to Guide](https://medium.
 Spotipy Documenation: [Spotipy](https://spotipy.readthedocs.io/en/2.22.1/)
 Joke API: [Official Joke API: Github](https://github.com/15Dkatz/official_joke_api)
 Random Dog Image APi: [Dog Ceo API Documenation](https://dog.ceo/dog-api/documentation/)
+Giphy APi: [Giphy API Documentation](https://developers.giphy.com/docs/api/)
 
+## env File Template
+DISCORD_TOKEN='[Token Here]'
+OPENAI_API_KEY=[Token Here]
+SPOTIFY_CLIENT_ID='[Token Here]'
+SPOTIFY_CLIENT_SECRET='[Token Here]'
+GIPHY_API_KEY = [Token Here]
 
